@@ -136,3 +136,115 @@ Dokumentasikan code dan hasil di console, lalu buat laporannya.
 > Output:
 >
 > ![5](img/5.png)
+
+
+## Praktikum 3: Eksperimen Tipe Data Maps
+
+### Langkah 1:
+Ketik atau salin kode program berikut ke dalam fungsi main().
+```dart
+var gifts = {
+  // Key:    Value
+  'first': 'partridge',
+  'second': 'turtledoves',
+  'fifth': 1
+};
+
+var nobleGases = {
+  2: 'helium',
+  10: 'neon',
+  18: 2,
+};
+
+print(gifts);
+print(nobleGases);
+```
+
+**Jawab**
+> ```dart
+> void main() {
+>   var gifts = {
+>     // Key:    Value
+>     'first': 'partridge',
+>     'second': 'turtledoves',
+>     'fifth': 1
+>   };
+>
+>   var nobleGases = {
+>     2: 'helium',
+>     10: 'neon',
+>     18: 2,
+>   };
+>
+>   print(gifts);
+>   print(nobleGases);
+> }
+> ```
+
+### Langkah 2:
+Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jelaskan! Lalu perbaiki jika terjadi error.
+
+**Jawab**
+> Tidak terjadi error, dan menampilkan key-value dari Collection Map
+> Output:
+>
+> ![6](img/6.png)
+
+### Langkah 3:
+Tambahkan kode program berikut, lalu coba eksekusi (Run) kode Anda.
+```dart
+var mhs1 = Map<String, String>();
+gifts['first'] = 'partridge';
+gifts['second'] = 'turtledoves';
+gifts['fifth'] = 'golden rings';
+
+var mhs2 = Map<int, String>();
+nobleGases[2] = 'helium';
+nobleGases[10] = 'neon';
+nobleGases[18] = 'argon';
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki.
+
+Tambahkan elemen nama dan NIM Anda pada tiap variabel di atas (gifts, nobleGases, mhs1, dan mhs2). Dokumentasikan hasilnya dan buat laporannya!
+
+**Jawab**
+> Tidak terjadi error dan output untuk kode diatas sama dengan langkah 2, karena tidak ada perubahan/penambahan fungsi `print()`
+> Ini adalah kode setelah menambahkan elemen nama dan NIM pada variabel (gifts, nobleGases, mhs1, mhs2):
+```dart
+void main() {
+  var gifts = {
+    // Key:    Value
+    'first': 'partridge',
+    'second': 'turtledoves',
+    'fifth': 1
+  };
+
+  var nobleGases = {
+    2: 'helium',
+    10: 'neon',
+    18: 2,
+  };
+
+  var mhs1 = Map<String, String>();
+  gifts['first'] = 'partridge';
+  gifts['second'] = 'turtledoves';
+  gifts['fifth'] = 'golden rings';
+
+  var mhs2 = Map<int, String>();
+  nobleGases[2] = 'helium';
+  nobleGases[10] = 'neon';
+  nobleGases[18] = 'argon';
+
+  gifts['2241720158'] = 'Fahridana Ahmad Rayyansyah';
+  nobleGases[2241720158] = "Fahridana Ahmad Rayyansyah";
+  mhs1["2241720158"] = "Fahridana Ahmad Rayyansyah";
+  mhs2[2241720158] = "Fahridana Ahmad Rayyansyah";
+
+  print(gifts);
+  print(nobleGases);
+  print(mhs1);
+  print(mhs2);
+}
+```
+output:
+![7](img/7.png)
