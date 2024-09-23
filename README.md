@@ -499,3 +499,148 @@ void main() {
 output:
 
 ![17](img/17.png)
+
+## TUGAS PRAKTIKUM
+1. Silakan selesaikan Praktikum 1 sampai 5, lalu dokumentasikan berupa screenshot hasil pekerjaan Anda beserta penjelasannya! <br/>
+**Jawab**
+    > DONE
+2. Jelaskan yang dimaksud Functions dalam bahasa Dart! <br/>
+**Jawab**
+    > Function adalah sebuah blok kode yang dapat dipanggil dan dieksekusi ketika dipanggil
+3. Jelaskan jenis-jenis parameter di Functions beserta contoh sintaksnya!<br/>
+**Jawab**
+    > Dart mendukung beberapa jenis parameter dalam fungsi, yaitu:
+    >
+    > **Positional Parameter:** Parameter biasa yang harus diberikan nilainya secara berurutan.
+    > ```dart
+    > void greet(String firstName, String lastName) {
+    >   print('Hello, $firstName $lastName');
+    > }
+    > greet('John', 'Doe'); // Output: Hello, John Doe
+    > ```
+    >
+    > **Optional Positional Parameter:** Parameter yang tidak wajib diberikan nilai, dan jika tidak disediakan, akan bernilai null atau memiliki nilai default.
+    > ```dart
+    > void greet(String firstName, [String? lastName]) {
+    >   print('Hello, $firstName ${lastName ?? ''}');
+    > }
+    > greet('John'); // Output: Hello, John
+    > greet('John', 'Doe'); // Output: Hello, John Doe
+    > ```
+    >
+    > **Named Parameter:** Parameter yang harus diberi nama saat dipanggil. Bisa bersifat opsional dengan nilai default atau tidak wajib diberikan.
+    > ```dart
+    > void greet({required String firstName, required String lastName}) {
+    >   print('Hello, $firstName $lastName');
+    > }
+    > greet(firstName: 'John', lastName: 'Doe'); // Output: Hello, John Doe
+    > ```
+    >
+    > **Optional Named Parameter:** Sama dengan named parameter, namun bersifat opsional.
+    > ```dart
+    > void greet({String firstName = 'John', String lastName = 'Doe'}) {
+    >   print('Hello, $firstName $lastName');
+    > }
+    > greet(); // Output: Hello, John Doe
+    > greet(firstName: 'Jane'); // Output: Hello, Jane Doe
+    > greet(lastName: 'Smith'); // Output: Hello, John Smith
+    > ```
+4. Jelaskan maksud Functions sebagai first-class objects beserta contoh sintaknya! <br/>
+**Jawab**
+    > Fungsi bisa disimpan dalam variabel, dipassing sebagai argumen, dan dikembalikan dari fungsi lain.
+    >
+    > ```dart
+    > void sayHello() {
+    >   print("Hello!");
+    > }
+    >
+    > void main() {
+    >   // Simpan fungsi dalam variabel
+    >   var func = sayHello;
+    >
+    >   // Panggil fungsi dari variabel
+    >   func(); // Output: Hello!
+    >
+    >   // Passing fungsi sebagai parameter
+    >   executeFunction(func);
+    > }
+    >
+    > void executeFunction(void Function() func) {
+    >   func(); // Output: Hello!
+    > }
+    > ```
+
+5. Apa itu Anonymous Functions? Jelaskan dan berikan contohnya!<br/>
+**Jawab**
+  > Anonymous Functions adalah fungsi yang tidak memiliki nama.
+  >
+  > ```dart
+  > void main() {
+  >   var list = ['Apple', 'Banana', 'Cherry'];
+  >
+  >   list.forEach((item) {
+  >     print(item); // output: Apple, Banana, Cherry
+  >   });
+  > }
+  > ```
+
+6. Jelaskan perbedaan Lexical scope dan Lexical closures! Berikan contohnya!<br/>
+**Jawab**
+> **Lexical Scope** adalah aturan yang menentukan di mana variabel dapat diakses berdasarkan di mana variabel tersebut dideklarasikan dalam kode sumber. Dalam Dart, variabel yang dideklarasikan dalam suatu blok kode hanya dapat diakses dalam blok tersebut dan blok-blok yang bersarang di dalamnya.
+>
+> **Contoh Lexical Scope:**
+> ```dart
+> void main() {
+>   var outerVariable = 'I am outside!';
+>
+>   void innerFunction() {
+>     var innerVariable = 'I am inside!';
+>     print(outerVariable); // Bisa mengakses outerVariable
+>     print(innerVariable); // Bisa mengakses innerVariable
+>   }
+>
+>   innerFunction();
+>   // print(innerVariable); // Error: Tidak bisa mengakses innerVariable
+> }
+> ```
+>
+> **Lexical Closures** adalah fungsi yang "menutup" variabel dari lingkup luar di mana fungsi tersebut didefinisikan. Ini memungkinkan fungsi untuk mengingat dan mengakses variabel dari lingkup luar bahkan setelah lingkup tersebut selesai dieksekusi.
+>
+> **Contoh Lexical Closures:**
+> ```dart
+> void main() {
+>   var outerVariable = 'I am outside!';
+>
+>   Function createInnerFunction() {
+>     var innerVariable = 'I am inside!';
+>     return () {
+>       print(outerVariable); // Bisa mengakses outerVariable
+>       print(innerVariable); // Bisa mengakses innerVariable
+>     };
+>   }
+>
+>   var innerFunction = createInnerFunction();
+>   innerFunction(); // Memanggil innerFunction yang merupakan closure
+> }
+> ```
+
+7. Jelaskan dengan contoh cara membuat return multiple value di Functions!<br/>
+**Jawab**
+> Mengembalikan beberapa nilai dari sebuah fungsi dengan menggunakan `Record`. Berikut adalah contohnya:
+>
+> ```dart
+> // Fungsi yang mengembalikan beberapa nilai
+> (int, String) getUserInfo() {
+>   int id = 101;
+>   String name = "John Doe";
+>   return (id, name);
+> }
+>
+> void main() {
+>   var userInfo = getUserInfo();
+>   print("ID: ${userInfo.$1}");
+>   print("Name: ${userInfo.$2}");
+> }
+> ```
+>
+> Pada contoh di atas, fungsi `getUserInfo` mengembalikan dua nilai: `id` dan `name`. Nilai-nilai tersebut dikemas dalam sebuah `Record` dan dapat diakses menggunakan properti `$1`, `$2`, dan seterusnya.
