@@ -248,3 +248,144 @@ void main() {
 ```
 output:
 ![7](img/7.png)
+
+
+## Praktikum 4: Eksperimen Tipe Data List: Spread dan Control-flow Operators
+
+### Langkah 1:
+Ketik atau salin kode program berikut ke dalam fungsi main().
+```dart
+var list = [1, 2, 3];
+var list2 = [0, ...list];
+print(list1);
+print(list2);
+print(list2.length);
+```
+
+**Jawab**
+```dart
+void main() {
+  var list1 = [1, 2, 3];
+  var list2 = [0, ...list1];
+  print(list1);
+  print(list2);
+  print(list2.length);
+}
+```
+
+### Langkah 2:
+Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jelaskan! Lalu perbaiki jika terjadi error.
+
+**Jawab**
+> Terjadi error karena variabel tidak sesuai yang awalnya diberi nama list, dipanggil list1, solusinya adalah mengganti nama tersebut, kode sudah diperbaiki dijawaban langkah 1. Inilah output dari kode tersebut:
+![8](img/8.png)
+
+### Langkah 3:
+Tambahkan kode program berikut, lalu coba eksekusi (Run) kode Anda.
+```dart
+list1 = [1, 2, null];
+print(list1);
+var list3 = [0, ...?list1];
+print(list3.length);
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki.
+
+Tambahkan variabel list berisi NIM Anda menggunakan Spread Operators. Dokumentasikan hasilnya dan buat laporannya!
+
+**Jawab**
+> Terjadi error karena terdapat nilai null, error tersebut dikarenakan null-safety pada dart. Untuk memperbaikinya perlu secara eksplisit memperbolehkan variabel tersebut bernilai null, sehingga kode tersebut akan seperti ini
+```dart
+void main() {
+  var list1 = <int?>[1, 2, 3];
+  var list2 = [0, ...list1];
+  print(list1);
+  print(list2);
+  print(list2.length);
+
+  list1 = [1, 2, null];
+  print(list1);
+  var list3 = [0, ...list1];
+  print(list3.length);
+}
+```
+output:
+
+![9](img/9.png)
+
+> Menambahkan nama dan nim menggunakan spread operator:
+```dart
+void main() {
+  var profile = ["2241720158", "Fahridana Ahmad Rayyansyah"];
+  var ans = ["Nim dan Nama", ...profile];
+
+  print(ans);
+}
+```
+Output:
+
+![10](img/10.png)
+
+### Langkah 4:
+Tambahkan kode program berikut, lalu coba eksekusi (Run) kode Anda.
+```dart
+var nav = ['Home', 'Furniture', 'Plants', if (promoActive) 'Outlet'];
+print(nav);
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki. Tunjukkan hasilnya jika variabel `promoActive` ketika `true` dan `false`.
+
+**Jawab**
+> Akan terdapat error karena variabel `promoActive` belum dideklarasikan, beginilah kode setelah diperbaiki:
+```dart
+void main() {
+  bool isPromoActive = true;
+  var nav = ['Home', 'Furniture', 'Plants', if (isPromoActive) 'Outlet'];
+  print(nav);
+}
+```
+output:
+
+![11](img/11.png)
+
+### Langkah 5:
+Tambahkan kode program berikut, lalu coba eksekusi (Run) kode Anda.
+```dart
+var nav2 = ['Home', 'Furniture', 'Plants', if (login case 'Manager') 'Inventory'];
+print(nav2);
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki. Tunjukkan hasilnya jika variabel login mempunyai kondisi lain.
+
+**Jawab**
+> Akan Terjadi error karena variabel `login` tidak ada, beginilah kode setelah diperbaiki dan diberi kondisi pada login
+```dart
+void main() {
+  String login = "Manager";
+  var nav2 = ['Home', 'Furniture', 'Plants', if (login case 'Manager') 'Inventory'];
+  print(nav2);
+
+  login = "User";
+  nav2 = ['Home', 'Furniture', 'Plants', if (login case 'Manager') 'Inventory'];
+  print(nav2);
+}
+```
+output:
+
+![12](img/12.png)
+
+### Langkah 6:
+Tambahkan kode program berikut, lalu coba eksekusi (Run) kode Anda.
+```dart
+var listOfInts = [1, 2, 3];
+var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
+assert(listOfStrings[1] == '#1');
+print(listOfStrings);
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki. Jelaskan manfaat Collection For dan dokumentasikan hasilnya.
+
+**Jawab**
+> Tidak terjadi error, Collection for berguna untuk menghasilkan data yang dinamis langsung di dalam Collection (list, map, set, dsb)
+>
+output:
+
+![13](img/13.png)
+
+
