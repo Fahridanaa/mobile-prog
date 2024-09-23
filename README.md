@@ -388,4 +388,114 @@ output:
 
 ![13](img/13.png)
 
+## Praktikum 5: Eksperimen Tipe Data Records
 
+### Langkah 1:
+Ketik atau salin kode program berikut ke dalam fungsi main().
+```dart
+var record = ('first', a: 2, b: true, 'last');
+print(record)
+```
+**Jawab**
+```dart
+void main() {
+  var record = ('first', a: 2, b: true, 'last');
+  print(record);
+}
+```
+
+### Langkah 2:
+Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jelaskan! Lalu perbaiki jika terjadi error.
+
+**Jawab**
+> Terjadi error karena tidak ada ;(titik koma) setelah print(). Kode sudah diperbaiki di langkah 1, inilah outputnya:
+>
+> ![14](img/14.png)
+
+### Langkah 3:
+Tambahkan kode program berikut di luar scope void main(), lalu coba eksekusi (Run) kode Anda.
+```dart
+(int, int) tukar((int, int) record) {
+  var (a, b) = record;
+  return (b, a);
+}
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki. Gunakan fungsi tukar() di dalam main() sehingga tampak jelas proses pertukaran value field di dalam Records.
+
+**Jawab**
+> Tidak terjadi error, inilah kode setelah fungsi tukar() digunakana di dalam main()
+```dart
+void main() {
+  var records = (1,2);
+  print("Nilai a : " + records.$1.toString());
+  print("Nilai b : " + records.$2.toString());
+  print("-------------------------------------------------------");
+
+  records = tukar(records);
+
+  print("Nilai a : " + records.$1.toString());
+  print("Nilai b : " + records.$2.toString());
+}
+
+(int, int) tukar((int, int) record) {
+  var (a, b) = record;
+  return (b, a);
+}
+```
+output:
+
+![15](img/15.png)
+
+### Langkah 4:
+Tambahkan kode program berikut di dalam scope void `main()`, lalu coba eksekusi (Run) kode Anda.
+```dart
+// Record type annotation in a variable declaration:
+(String, int) mahasiswa;
+print(mahasiswa);
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki. Inisialisasi field nama dan NIM Anda pada variabel record `mahasiswa` di atas. Dokumentasikan hasilnya dan buat laporannya!
+
+**Jawab**
+> Terjadi error karena variabel `mahasiswa` belum diinisialisasi, inilah kode setelah variabel `mahasiswa` diinisialisasi field nama dan nim
+```dart
+void main() {
+  (String, int) mahasiswa = ("Fahridana Ahmad Rayyansyah", 2241720158);
+  print(mahasiswa);
+}
+
+(int, int) tukar((int, int) record) {
+  var (a, b) = record;
+  return (b, a);
+}
+```
+output:
+
+![16](img/16.png)
+
+### Langkah 5:
+Tambahkan kode program berikut di dalam scope void `main()`, lalu coba eksekusi (Run) kode Anda.
+```dart
+var mahasiswa2 = ('first', a: 2, b: true, 'last');
+
+print(mahasiswa2.$1); // Prints 'first'
+print(mahasiswa2.a); // Prints 2
+print(mahasiswa2.b); // Prints true
+print(mahasiswa2.$2); // Prints 'last'
+```
+Apa yang terjadi ? Jika terjadi error, silakan perbaiki. Gantilah salah satu isi record dengan nama dan NIM Anda, lalu dokumentasikan hasilnya dan buat laporannya!
+
+**Jawab**
+> Tidak terjadi error, inilah kode setelah mengganti salah satu isi records dengan nama dan nim
+```dart
+void main() {
+  var mahasiswa2 = ("2241720158: Fahridana Ahmad Rayyansyah", a: 2, b: true, 'last');
+
+  print(mahasiswa2.$1);
+  print(mahasiswa2.a);
+  print(mahasiswa2.b);
+  print(mahasiswa2.$2);
+}
+```
+output:
+
+![17](img/17.png)
