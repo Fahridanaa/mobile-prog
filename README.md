@@ -124,3 +124,111 @@ Pertama, Anda akan membuat kolom bagian kiri pada judul. Tambahkan kode berikut 
     );
   }
 ```
+
+
+## Praktikum 2: Implementasi button row
+Selesaikan langkah-langkah praktikum berikut ini dengan melanjutkan dari praktikum sebelumnya.
+
+### Langkah 1: Buat method Column _buildButtonColumn
+Bagian tombol berisi 3 kolom yang menggunakan tata letak yang sama—sebuah ikon di atas baris teks. Kolom pada baris ini diberi jarak yang sama, dan teks serta ikon diberi warna primer.
+
+Karena kode untuk membangun setiap kolom hampir sama, buatlah metode pembantu pribadi bernama `buildButtonColumn()`, yang mempunyai parameter warna, `Icon` dan `Text`, sehingga dapat mengembalikan kolom dengan widgetnya sesuai dengan warna tertentu.
+
+```Dart
+Column _buildButtonColumn(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color),
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+```
+
+### Langkah 2: Buat widget buttonSection
+Buat Fungsi untuk menambahkan ikon langsung ke kolom. Teks berada di dalam `Container` dengan margin hanya di bagian atas, yang memisahkan teks dari ikon.
+
+Bangun baris yang berisi kolom-kolom ini dengan memanggil fungsi dan set warna, `Icon`, dan teks khusus melalui parameter ke kolom tersebut. Sejajarkan kolom di sepanjang sumbu utama menggunakan `MainAxisAlignment.spaceEvenly` untuk mengatur ruang kosong secara merata sebelum, di antara, dan setelah setiap kolom. Tambahkan kode berikut tepat di bawah deklarasi `titleSection` di dalam metode `build()`:
+```Dart
+Color color = Theme.of(context).primaryColor;
+
+Widget buttonSection = Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    _buildButtonColumn(color, Icons.call, 'CALL'),
+    _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+    _buildButtonColumn(color, Icons.share, 'SHARE'),
+  ],
+);
+```
+
+### Langkah 3: Tambah button section ke body
+Tambahkan variabel `buttonSection` ke dalam `body` seperti berikut
+```Dart
+return MaterialApp(
+      title: 'Flutter Layout: Fahridana Ahmad Rayyansyah - 2241720158',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter layout demo'),
+        ),
+        body: ListView(
+          children: [
+            titleSection,
+            buttonSection,
+          ],
+        ),
+      ),
+    );
+```
+
+## Praktikum 3: Implementasi text section
+Selesaikan langkah-langkah praktikum berikut ini dengan melanjutkan dari praktikum sebelumnya.
+
+### Langkah 1: Buat widget textSection
+Tentukan bagian teks sebagai variabel. Masukkan teks ke dalam `Container` dan tambahkan padding di sepanjang setiap tepinya. Tambahkan kode berikut tepat di bawah deklarasi `buttonSection`:
+```Dart
+Widget textSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: const Text(
+        'Kota Batu, also known as Batu, is a city in Indonesia`s East Java Province. A former Dutch hill retreat, it`s
+        surrounded by mountains like Arjuno and Welirang, which have summit trails. Jawa Timur Park 2 has exotic
+        animals at Batu Secret Zoo, and animal skeletons at Museum Satwa. To the west, Songgokerto village is home to
+        hot springs and the ancient Hindu Songgoriti Temple. Nearby is the high Coban Rondo Waterfall.',
+        softWrap: true,
+      ),
+    );
+```
+Dengan memberi nilai `softWrap` = true, baris teks akan memenuhi lebar kolom sebelum membungkusnya pada batas kata.
+
+### Langkah 2: Tambahkan variabel text section ke body
+
+Tambahkan widget variabel textSection ke dalam body seperti berikut:
+```Dart
+return MaterialApp(
+      title: 'Flutter Layout: Fahridana Ahmad Rayyansyah - 2241720158',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter layout demo'),
+        ),
+        body: ListView(
+          children: [
+            titleSection,
+            buttonSection,
+            textSection,
+          ],
+        ),
+      ),
+    );
+```
