@@ -115,7 +115,7 @@ Pertama, Anda akan membuat kolom bagian kiri pada judul. Tambahkan kode berikut 
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        body: ListView(
+        body: Column(
           children: [
             titleSection,
           ],
@@ -183,7 +183,7 @@ return MaterialApp(
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        body: ListView(
+        body: Column(
           children: [
             titleSection,
             buttonSection,
@@ -222,7 +222,7 @@ return MaterialApp(
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        body: ListView(
+        body: Column(
           children: [
             titleSection,
             buttonSection,
@@ -232,3 +232,71 @@ return MaterialApp(
       ),
     );
 ```
+
+## Praktikum 4: Implementasi image section
+
+Selesaikan langkah-langkah praktikum berikut ini dengan melanjutkan dari praktikum sebelumnya.
+
+### Langkah 1: Siapkan aset gambar
+Anda dapat mencari gambar di internet yang ingin ditampilkan. Buatlah folder `images` di root project **layout_flutter**. Masukkan file gambar tersebut ke folder `images`, lalu set nama file tersebut ke file `pubspec.yaml` seperti berikut:
+```yaml
+assets:
+        - assets/images/
+```
+
+### Langkah 2: Tambahkan gambar ke body
+Tambahkan aset gambar ke dalam body seperti berikut:
+```Dart
+return MaterialApp(
+      title: 'Flutter Layout: Fahridana Ahmad Rayyansyah - 2241720158',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter layout demo'),
+        ),
+        body: Column(
+          children: [
+            Image.asset(
+              'assets/images/image.png',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection,
+            textSection,
+          ],
+        ),
+      ),
+    );
+```
+`BoxFit.cover` memberi tahu kerangka kerja bahwa gambar harus sekecil mungkin tetapi menutupi seluruh kotak rendernya.
+
+### Langkah 3: Terakhir, ubah menjadi ListView
+Pada langkah terakhir ini, atur semua elemen dalam `ListView`, bukan Column, karena `ListView` mendukung scroll yang dinamis saat aplikasi dijalankan pada perangkat yang resolusinya lebih kecil.
+```Dart
+return MaterialApp(
+      title: 'Flutter Layout: Fahridana Ahmad Rayyansyah - 2241720158',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter layout demo'),
+        ),
+        body: ListView(
+          children: [
+            Image.asset(
+              'assets/images/image.png',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection,
+            textSection,
+          ],
+        ),
+      ),
+    );
+```
+
+Output hasil praktikum 1-4
+
+![output img](screenshot/4.png)
